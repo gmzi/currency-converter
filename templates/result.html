@@ -1,24 +1,20 @@
-{%extends 'base1.html'%}
-{%block result%}
+{%extends 'base1.html'%} {%block result%}
 <div class="result">
-    <h3>{{amount}} {{fro}} = </h3>
-    <h2>{{result}} {{to}}</h2>
-    <h4>Exchange rate: 1 {{fro}} = {{rate}} {{to}} </h4>  
+  <h4 class='result-details'>{{amount}} {{fro}} = </h4>
+  <h2 class='result-amt'>{{result}} {{to}}</h2>
+  <h4 class='result-details'>Exchange rate: 1 {{fro}} = {{rate}} {{to}} </h4>
 </div>
 
 {%block more%}
-<div class="more">
-    <h2>More currencies</h2>
-        <div class="more-currs">
-            <h4>1 {{fro}} = </h4>
-            <ul>
-                {%for key, value in dict_item.items()%}
-                <li>{{value}} {{key}}</li>
-                {%endfor%}
-            </ul>
-        </div>
-    </div>
-{%endblock%}
-
-{%endblock%}
-
+<div class="more-container">
+  <h2 class="more-header">More currencies:</h2>
+  <div class="more-currs">
+    <h4><span class='number'>1.00</span> {{fro}} = </h4>
+    <ul>
+      {%for key, value in dict_item.items()%}
+      <li><span class='number'>{{value}}</span> <span class="symbol">{{key}}</span><span class="separator"> / </span></li>
+      {%endfor%}
+    </ul>
+  </div>
+</div>
+{%endblock%} {%endblock%}

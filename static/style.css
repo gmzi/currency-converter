@@ -1,7 +1,96 @@
 body {
-  background-color: blueviolet;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  /* min-height: 100vh; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: rgb(9, 20, 110);
+  /* display: flex;
+  flex-direction: column; */
 }
 
+h1,
+h2 {
+  text-align: center;
+  color: white;
+  margin: 0.1rem 1rem;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 300;
+}
+
+.btc {
+  font-weight: bold;
+}
+
+.form-container {
+  border: 1px solid white;
+  border-radius: 3px;
+  background-color: white;
+  margin: 1.5rem;
+  padding: 0.3rem;
+  box-shadow: 0px 3px rgb(245, 158, 28);
+  display: flex;
+  justify-content: center;
+}
+.form-wrapper {
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+label {
+  margin: 0.5rem 0rem;
+  font-size: large;
+  font-weight: bold;
+}
+
+input,
+select {
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+input:hover,
+input:focus,
+input:active,
+select:hover,
+select:focus,
+select:active {
+  outline: none;
+  border: 1px solid orange;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: rgb(4, 96, 201);
+  color: white;
+}
+
+button:hover,
+button:active,
+button:focus {
+  background-color: cornflowerblue;
+  box-shadow: 0px 2px rgb(206, 202, 202);
+}
 /* Dropdown Button */
 .dropbtn {
   padding: 16px;
@@ -47,4 +136,71 @@ body {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+.result-container {
+  border-top: 1px solid gray;
+  text-align: center;
+  box-shadow: 0px 2px rgb(216, 211, 211);
+}
+
+.result-details,
+.result-amt {
+  color: black;
+}
+
+.result-details {
+  font-weight: normal;
+}
+
+.result-amt {
+  font-weight: bold;
+}
+
+.more-container {
+  border-top: 1px solid gray;
+  text-align: left;
+}
+
+.more-header {
+  font-weight: normal;
+  text-align: left;
+  color: black;
+  margin: 0px 0px;
+}
+
+ul {
+  list-style: none;
+  margin: 0.2rem;
+}
+
+ul li {
+  display: inline;
+}
+
+.number {
+  color: green;
+}
+
+.symbol {
+  color: black;
+}
+
+.separator {
+  color: blue;
+}
+
+.btc-container {
+  border-top: 1px solid gray;
+}
+
+.btc-header {
+  color: black;
+}
+
+.btc-ul {
+  margin-bottom: 0.5rem;
+}
+.btc-li {
+  display: block;
 }

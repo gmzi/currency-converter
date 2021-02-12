@@ -22,40 +22,9 @@ class BtcConversion:
     def convert_btc_to(self):
         return b.convert_btc_to_cur(self.amount, self.curr)
 
-    def format(self, func, places=2, curr='', sep=',', dp='.', pos='', neg='-', trailneg=''):
-        value = func()
-        q = Decimal(10) ** -places
-        sign, digits, exp = value.quantize(q).as_tuple()
-        result = []
-        digits = list(map(str, digits))
-        build, next = result.append, digits.pop
-        if sign:
-            build(trailneg)
-        for i in range(places):
-            build(next() if digits else '0')
-        if places:
-            build(dp)
-        if not digits:
-            build('0')
-        i = 0
-        while digits:
-            build(next())
-            i += 1
-            if i == 3 and digits:
-                i = 0
-                build(sep)
-        build(curr)
-        build(neg if sign else pos)
-        return ''.join(reversed(result))
-
 
 def convert_btc_to_cur(amt, curr):
     return b.convert_btc_to_cur(amt, curr)
-
-
-# print(b.convert_to_btc(100, 'USD'))
-# wallet = b.convert_btc_to_cur(100, 'USD')
-# print(type(wallet))
 
 
 def format(value=0, places=2, curr='', sep=',', dp='.', pos='', neg='-', trailneg=''):
@@ -84,8 +53,6 @@ def format(value=0, places=2, curr='', sep=',', dp='.', pos='', neg='-', trailne
     return ''.join(reversed(result))
 
 
-# print(format(value=Decimal(wallet)))
-
 def rate(curr):
     return b.get_latest_price(curr)
 
@@ -94,12 +61,7 @@ def convert_to_curr(amt, curr):
     return b.convert_btc_to_cur(amt, curr)
 
 
-# print(convert_to_curr(100, 'HKD'))
-print(date.today())
-print(datetime.now())
-
-
-def prev_prices(curr, days_back=7):
+def prev_prices(curr, days_back=90):
     today = datetime.now()
     start_date = today - timedelta(days=days_back)
     return b.get_previous_price_list(curr, start_date, today)

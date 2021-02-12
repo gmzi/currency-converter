@@ -6,18 +6,6 @@ from decimal import *
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "converter"
 
-operation = conversion.Conversion('USD', 'EUR', Decimal('100'))
-operation2 = conversion.Conversion('EUR', 'USD', Decimal('100'))
-
-# print(operation.rate())
-# print(operation.convert_and_format())
-# print(operation2.rate())
-# print(operation2.convert_and_format())
-
-verga = btc_conversion.BtcConversion(100, 'USD')
-
-# print(verga.format(price()))
-
 
 @app.route('/')
 def show_form():
@@ -49,7 +37,8 @@ def convert():
         result = operation.convert_and_format()
         calc_rate = operation.rate()
         rate = conversion.format(Decimal(calc_rate), places=4)
-        all_currs = conversion.all_currs(fro)
+        calc_all_currs = conversion.all_currs(fro)
+        all_currs = btc_conversion.format_nums(calc_all_currs)
         return render_template('result.html', result=result, amount=amount, fro=fro, to=to, rate=rate,
                                dict_item=all_currs
                                )
