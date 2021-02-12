@@ -1,0 +1,24 @@
+{%extends 'base1.html'%}
+{%block result%}
+<div class="result">
+    <h3>{{amount}} {{fro}} = </h3>
+    <h2>{{result}} {{to}}</h2>
+    <h4>Exchange rate: 1 {{fro}} = {{rate}} {{to}} </h4>  
+</div>
+
+{%block more%}
+<div class="more">
+    <h2>More currencies</h2>
+        <div class="more-currs">
+            <h4>1 {{fro}} = </h4>
+            <ul>
+                {%for key, value in dict_item.items()%}
+                <li>{{value}} {{key}}</li>
+                {%endfor%}
+            </ul>
+        </div>
+    </div>
+{%endblock%}
+
+{%endblock%}
+

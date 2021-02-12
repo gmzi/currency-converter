@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Currency and bitcoin converter</title>
+</head>
+<body>
+    <h1>Currency converter</h1>
+    <form action="/convert" method="GET">
+        <label for="amount">Amount</label>
+        <input type="number" name='amount' placeholder="amount" min='0' step='any'>
+        <label for="curr-list from">from</label>
+        <select class="curr-list from" name='from-curr'>
+            <option value='BTC'>BTC</option>
+            <option value='GBP'>GBP</option>
+            <option value='HKD'>HKD</option>
+            <option value='IDR'>IDR</option>
+            <option value='ILS'>ILS</option>
+            <option value='DKK'>DKK</option>
+            <option value='INR'>INR</option>
+            <option value='CHF'>CHF</option>
+            <option value='MXN'>MXN</option>
+            <option value='CZK'>CZK</option>
+            <option value='SGD'>SGD</option>
+            <option value='THB'>THB</option>
+            <option value='HRK'>HRK</option>
+            <option value='EUR'>EUR</option>
+            <option value='MYR'>MYR</option>
+            <option value='NOK'>NOK</option>
+            <option value='CNY'>CNY</option>
+            <option value='BGN'>BGN</option>
+            <option value='PHP'>PHP</option>
+            <option value='PLN'>PLN</option>
+            <option value='ZAR'>ZAR</option>
+            <option value='CAD'>CAD</option>
+            <option value='ISK'>ISK</option>
+            <option value='BRL'>BRL</option>
+            <option value='RON'>RON</option>
+            <option value='NZD'>NZD</option>
+            <option value='TRY'>TRY</option>
+            <option value='JPY'>JPY</option>
+            <option value='RUB'>RUB</option>
+            <option value='KRW'>KRW</option>
+            <option value='USD'>USD</option>
+            <option value='AUD'>AUD</option>
+            <option value='HUF'>HUF</option>
+            <option value='SEK'>SEK</option>
+            <option value='XBT'>XBT</option>
+        </select>
+        <label for="curr-list to">to</label>
+        <select class="curr-list to" name="to-curr">
+            <option value='BTC'>BTC</option>
+            <option value='GBP'>GBP</option>
+            <option value='HKD'>HKD</option>
+            <option value='IDR'>IDR</option>
+            <option value='ILS'>ILS</option>
+            <option value='DKK'>DKK</option>
+            <option value='INR'>INR</option>
+            <option value='CHF'>CHF</option>
+            <option value='MXN'>MXN</option>
+            <option value='CZK'>CZK</option>
+            <option value='SGD'>SGD</option>
+            <option value='THB'>THB</option>
+            <option value='HRK'>HRK</option>
+            <option value='EUR'>EUR</option>
+            <option value='MYR'>MYR</option>
+            <option value='NOK'>NOK</option>
+            <option value='CNY'>CNY</option>
+            <option value='BGN'>BGN</option>
+            <option value='PHP'>PHP</option>
+            <option value='PLN'>PLN</option>
+            <option value='ZAR'>ZAR</option>
+            <option value='CAD'>CAD</option>
+            <option value='ISK'>ISK</option>
+            <option value='BRL'>BRL</option>
+            <option value='RON'>RON</option>
+            <option value='NZD'>NZD</option>
+            <option value='TRY'>TRY</option>
+            <option value='JPY'>JPY</option>
+            <option value='RUB'>RUB</option>
+            <option value='KRW'>KRW</option>
+            <option value='USD'>USD</option>
+            <option value='AUD'>AUD</option>
+            <option value='HUF'>HUF</option>
+            <option value='SEK'>SEK</option>
+            <option value='XBT'>XBT</option>
+        </select>
+        <button type="submit">Convert</button>
+    </form>
+    <div class="result">
+        {% block content%}
+            <h3>{{amount}} {{fro}} = </h3>
+            <h2>{{result}} {{to}}</h2>
+            <h4>Exchange rate: 1{{fro}} = {{rate}}{{to}} </h4>  
+        {% endblock%}
+    </div>
+</body>
+</html>
+
+
