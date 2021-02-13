@@ -1,18 +1,12 @@
 {%extends 'base1.html'%} 
 {%block result%}
-<div class="result">
-  <h4 class='result-details'>{{amount}} {{fro}} = </h4>
-  <h2 class='result-amt'>{{result}} {{to}}</h2>
-  <h4 class='result-details'>Exchange rate: 1 {{fro}} = {{rate}} {{to}} </h4>
+<div class="text-center result-container">
+  <h6>{{amount}} {{fro}} = </h4>
+  <h2>{{result}} {{to}}</h2>
+  <h6>Exchange rate: 1 {{fro}} = {{rate}} {{to}} </h4>
 </div>
 
 {%block btc_result%}
-    <!-- <h2>Last week values:</h2>
-    <ul>
-      {%for key, value in dict_item.items()%}
-      <li>{{key}} : {{value}}</li>
-      {%endfor%}
-    </ul> -->
     <div class="btc-container">
       <h2 class="btc-header">Previous values:</h2>
       <div class="btc-currs">

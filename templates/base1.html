@@ -9,10 +9,10 @@
     <title>currency converter</title>
   </head>
   <body>
-    <h1><a href="/">currency/converter</a></h1>
-    <h2>check exchange rates, <span class=btc>bitcoin</span> included!!</h2>
+    <h1 class='titles'><a href="/">currency/converter</a></h1>
+    <h2 class="titles">check exchange rates, <span class=btc-span>bitcoin</span> included!!</h2>
     <div class="position-relative ms-4 me-4 mt-2">
-        <div class="card"  style="">
+        <div class="card">
             <div class="container">
                 <form action="/convert" method="GET">
                     <div class="mb-3">
@@ -21,124 +21,106 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <!-- aca -->
+                            <label for="curr-list from" class='form-label'>from</label>
                         </div>
                         <div class="col">
-                            <!-- aca -->
+                            <label for="curr-list to" class='form-label'>to</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <select class="form-select form-select" name="from-curr">
+                                <option value="USD" selected>USD</option>
+                                <option value="BTC">BTC</option>
+                                <option value="GBP">GBP</option>
+                                <option value="HKD">HKD</option>
+                                <option value="IDR">IDR</option>
+                                <option value="ILS">ILS</option>
+                                <option value="DKK">DKK</option>
+                                <option value="INR">INR</option>
+                                <option value="CHF">CHF</option>
+                                <option value="MXN">MXN</option>
+                                <option value="CZK">CZK</option>
+                                <option value="SGD">SGD</option>
+                                <option value="THB">THB</option>
+                                <option value="HRK">HRK</option>
+                                <option value="EUR">EUR</option>
+                                <option value="MYR">MYR</option>
+                                <option value="NOK">NOK</option>
+                                <option value="CNY">CNY</option>
+                                <option value="BGN">BGN</option>
+                                <option value="PHP">PHP</option>
+                                <option value="PLN">PLN</option>
+                                <option value="ZAR">ZAR</option>
+                                <option value="CAD">CAD</option>
+                                <option value="ISK">ISK</option>
+                                <option value="BRL">BRL</option>
+                                <option value="RON">RON</option>
+                                <option value="NZD">NZD</option>
+                                <option value="TRY">TRY</option>
+                                <option value="JPY">JPY</option>
+                                <option value="RUB">RUB</option>
+                                <option value="KRW">KRW</option>
+                                <option value="AUD">AUD</option>
+                                <option value="HUF">HUF</option>
+                                <option value="SEK">SEK</option>
+                                <option value="XBT">XBT</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-select form-select" name="to-curr">
+                                <option value="USD">USD</option>
+                                <option value="BTC" selected>BTC</option>
+                                <option value="GBP">GBP</option>
+                                <option value="HKD">HKD</option>
+                                <option value="IDR">IDR</option>
+                                <option value="ILS">ILS</option>
+                                <option value="DKK">DKK</option>
+                                <option value="INR">INR</option>
+                                <option value="CHF">CHF</option>
+                                <option value="MXN">MXN</option>
+                                <option value="CZK">CZK</option>
+                                <option value="SGD">SGD</option>
+                                <option value="THB">THB</option>
+                                <option value="HRK">HRK</option>
+                                <option value="EUR">EUR</option>
+                                <option value="MYR">MYR</option>
+                                <option value="NOK">NOK</option>
+                                <option value="CNY">CNY</option>
+                                <option value="BGN">BGN</option>
+                                <option value="PHP">PHP</option>
+                                <option value="PLN">PLN</option>
+                                <option value="ZAR">ZAR</option>
+                                <option value="CAD">CAD</option>
+                                <option value="ISK">ISK</option>
+                                <option value="BRL">BRL</option>
+                                <option value="RON">RON</option>
+                                <option value="NZD">NZD</option>
+                                <option value="TRY">TRY</option>
+                                <option value="JPY">JPY</option>
+                                <option value="RUB">RUB</option>
+                                <option value="KRW">KRW</option>
+                                <option value="AUD">AUD</option>
+                                <option value="HUF">HUF</option>
+                                <option value="SEK">SEK</option>
+                                <option value="XBT">XBT</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="d-grid gap-1">
+                            <button type="submit" class="btn btn-primary">Convert</button>
                         </div>
                     </div>
                 </form>
             </div>
 
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+                {% block result%} 
+                {% endblock%}
             </div>
         </div>
     </div>
 
 
-    <div class="form-container">
-        <div class="form-wrapper">
-            <form action="/convert" method="GET">
-                <div class="label-container">
-                    <label for="amount">Amount</label>
-                </div>
-                <div class="input-container">
-                    <input type="number" name="amount" placeholder="$1.00" min="0" step="any"/>
-                </div>
-                <div class="label-container">
-                    <label for="curr-list from">from</label>
-                </div>
-                <div class="input-container">
-                    <select class="curr-list from" name="from-curr">
-                        <option value="USD">USD</option>
-                        <option value="BTC">BTC</option>
-                        <option value="GBP">GBP</option>
-                        <option value="HKD">HKD</option>
-                        <option value="IDR">IDR</option>
-                        <option value="ILS">ILS</option>
-                        <option value="DKK">DKK</option>
-                        <option value="INR">INR</option>
-                        <option value="CHF">CHF</option>
-                        <option value="MXN">MXN</option>
-                        <option value="CZK">CZK</option>
-                        <option value="SGD">SGD</option>
-                        <option value="THB">THB</option>
-                        <option value="HRK">HRK</option>
-                        <option value="EUR">EUR</option>
-                        <option value="MYR">MYR</option>
-                        <option value="NOK">NOK</option>
-                        <option value="CNY">CNY</option>
-                        <option value="BGN">BGN</option>
-                        <option value="PHP">PHP</option>
-                        <option value="PLN">PLN</option>
-                        <option value="ZAR">ZAR</option>
-                        <option value="CAD">CAD</option>
-                        <option value="ISK">ISK</option>
-                        <option value="BRL">BRL</option>
-                        <option value="RON">RON</option>
-                        <option value="NZD">NZD</option>
-                        <option value="TRY">TRY</option>
-                        <option value="JPY">JPY</option>
-                        <option value="RUB">RUB</option>
-                        <option value="KRW">KRW</option>
-                        <option value="AUD">AUD</option>
-                        <option value="HUF">HUF</option>
-                        <option value="SEK">SEK</option>
-                        <option value="XBT">XBT</option>
-                    </select>
-                </div>
-                <div class="label-container">
-                    <label for="curr-list to">to</label>
-                </div>
-                <div class="input-container">
-                    <select class="curr-list to" name="to-curr">
-                        <option value="BTC">BTC</option>
-                        <option value="GBP">GBP</option>
-                        <option value="HKD">HKD</option>
-                        <option value="IDR">IDR</option>
-                        <option value="ILS">ILS</option>
-                        <option value="DKK">DKK</option>
-                        <option value="INR">INR</option>
-                        <option value="CHF">CHF</option>
-                        <option value="MXN">MXN</option>
-                        <option value="CZK">CZK</option>
-                        <option value="SGD">SGD</option>
-                        <option value="THB">THB</option>
-                        <option value="HRK">HRK</option>
-                        <option value="EUR">EUR</option>
-                        <option value="MYR">MYR</option>
-                        <option value="NOK">NOK</option>
-                        <option value="CNY">CNY</option>
-                        <option value="BGN">BGN</option>
-                        <option value="PHP">PHP</option>
-                        <option value="PLN">PLN</option>
-                        <option value="ZAR">ZAR</option>
-                        <option value="CAD">CAD</option>
-                        <option value="ISK">ISK</option>
-                        <option value="BRL">BRL</option>
-                        <option value="RON">RON</option>
-                        <option value="NZD">NZD</option>
-                        <option value="TRY">TRY</option>
-                        <option value="JPY">JPY</option>
-                        <option value="RUB">RUB</option>
-                        <option value="KRW">KRW</option>
-                        <option value="USD">USD</option>
-                        <option value="AUD">AUD</option>
-                        <option value="HUF">HUF</option>
-                        <option value="SEK">SEK</option>
-                        <option value="XBT">XBT</option>
-                    </select>
-                </div>
-                <button type="submit">Convert</button>
-            </form>
-            <div class="result-container">
-                {% block result%} {% endblock%}
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-  </body>
-</html>
+    

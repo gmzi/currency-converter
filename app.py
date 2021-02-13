@@ -29,6 +29,7 @@ def convert():
     if form_amt == '':
         form_amt = 1
     amount = Decimal(form_amt)
+    amount_w_format = btc_conversion.format(value=amount)
     fro = request.args.get('from-curr')
     to = request.args.get('to-curr')
     vals = [fro, to]
@@ -36,16 +37,21 @@ def convert():
         if vals[0] == 'BTC':
             calc = btc_conversion.convert_to_curr(amount, to)
             result = btc_conversion.format(value=calc)
-            rate = btc_conversion.rate(to)
+            calc_rate = btc_conversion.rate(to)
+            rate = conversion.format(Decimal(calc_rate), places=4)
             calc_rates = btc_conversion.prev_prices(to)
             prev_rates = btc_conversion.format_nums(calc_rates)
         if vals[1] == 'BTC':
             operation = btc_conversion.BtcConversion(Decimal(amount), fro)
             result = operation.convert_to_btc()
-            rate = btc_conversion.rate(fro)
+            # Mix up here: solution: set a new BtcConversion object with value of 1 'fro',
+            # calculate it to btc, format the result and pass it to the template as rate.
+            calc_rate = btc_conversion.rate(fro)
+            rate = conversion.format(Decimal(calc_rate), places=4)
+            # back on track from here:
             calc_rates = btc_conversion.prev_prices(fro)
             prev_rates = btc_conversion.format_nums(calc_rates)
-        return render_template('btc_result.html', result=result, amount=amount, fro=fro, to=to, rate=rate, dict_item=prev_rates)
+        return render_template('btc_result.html', result=result, amount=amount_w_format, fro=fro, to=to, rate=rate, dict_item=prev_rates)
     if "BTC" not in vals:
         operation = conversion.Conversion(fro, to, Decimal(amount))
         result = operation.convert_and_format()
@@ -53,6 +59,6 @@ def convert():
         rate = conversion.format(Decimal(calc_rate), places=4)
         calc_all_currs = conversion.all_currs(fro)
         all_currs = btc_conversion.format_nums(calc_all_currs)
-        return render_template('result.html', result=result, amount=amount, fro=fro, to=to, rate=rate,
+        return render_template('result.html', result=result, amount=amount_w_format, fro=fro, to=to, rate=rate,
                                dict_item=all_currs
                                )
