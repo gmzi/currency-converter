@@ -1,10 +1,21 @@
-from flask import Flask, request, render_template, redirect, flash, jsonify
+from os import path, walk
+from flask import Flask, request, render_template, redirect, flash, jsonify, send_from_directory
 import conversion
 import btc_conversion
 from decimal import *
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "converter"
+
+# Reload with no cache for styling purposes:
+
+
+@app.after_request
+def apply_caching(response):
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    return response
+
+# routes
 
 
 @app.route('/')
@@ -14,7 +25,10 @@ def show_form():
 
 @app.route('/convert')
 def convert():
-    amount = Decimal(request.args['amount'])
+    form_amt = request.args['amount']
+    if form_amt == '':
+        form_amt = 1
+    amount = Decimal(form_amt)
     fro = request.args.get('from-curr')
     to = request.args.get('to-curr')
     vals = [fro, to]
