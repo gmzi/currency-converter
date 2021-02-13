@@ -7,6 +7,10 @@ body {
   background-color: rgb(9, 20, 110);
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
 h1,
 h2 {
   text-align: center;
@@ -16,6 +20,7 @@ h2 {
 
 h1 {
   font-weight: 600;
+  font-size: 5vh;
 }
 
 h2 {
@@ -39,6 +44,9 @@ h2 {
 .form-wrapper {
   margin: 1rem;
   padding: 1rem;
+  align-items: center;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 form {
@@ -47,12 +55,14 @@ form {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  position: inherit;
 }
 
 label {
   margin: 0.5rem 0rem;
   font-size: large;
   font-weight: bold;
+  flex-shrink: 2;
 }
 
 input,
@@ -62,6 +72,7 @@ select {
   outline: none;
   margin: 0.5rem;
   padding: 1rem;
+  flex-shrink: 2;
 }
 
 input:hover,
