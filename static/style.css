@@ -58,7 +58,7 @@ form {
   position: inherit;
 }
 
-label {
+/* label {
   margin: 0.5rem 0rem;
   font-size: large;
   font-weight: bold;
@@ -83,7 +83,7 @@ select:focus,
 select:active {
   outline: none;
   border: 1px solid orange;
-}
+} */
 
 button {
   border: none;
