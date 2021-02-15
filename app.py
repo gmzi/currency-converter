@@ -1,5 +1,5 @@
-from os import path, walk
-from flask import Flask, request, render_template, redirect, flash, jsonify, send_from_directory
+# from os import path, walk
+from flask import Flask, request, render_template,
 import conversion
 import btc_conversion
 from decimal import *
@@ -15,7 +15,7 @@ def apply_caching(response):
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     return response
 
-# routes
+# routes:
 
 
 @app.route('/')
