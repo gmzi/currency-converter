@@ -44,11 +44,11 @@ def convert():
         if vals[1] == 'BTC':
             operation = btc_conversion.BtcConversion(Decimal(amount), fro)
             result = operation.convert_to_btc()
-            # Mix up here: solution: set a new BtcConversion object with value of 1 'fro',
-            # calculate it to btc, format the result and pass it to the template as rate.
+
+            # rate_obj = btc_conversion.BtcConversion(1, fro)
             calc_rate = btc_conversion.rate(fro)
             rate = conversion.format(Decimal(calc_rate), places=4)
-            # back on track from here:
+
             calc_rates = btc_conversion.prev_prices(fro)
             prev_rates = btc_conversion.format_nums(calc_rates)
         return render_template('btc_result.html', result=result, amount=amount_w_format, fro=fro, to=to, rate=rate, dict_item=prev_rates)
