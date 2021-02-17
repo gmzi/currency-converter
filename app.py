@@ -1,5 +1,5 @@
 # from os import path, walk
-from flask import Flask, request, render_template,
+from flask import Flask, request, render_template
 import conversion
 import btc_conversion
 from decimal import *
